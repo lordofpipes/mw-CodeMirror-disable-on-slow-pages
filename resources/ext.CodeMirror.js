@@ -391,7 +391,10 @@
 		// Add CodeMirror button to the enhanced editing toolbar.
 		mw.hook( 'wikiEditor.toolbarReady' ).add( function ( $textarea ) {
 			$textbox1 = $textarea;
-			addCodeMirrorToWikiEditor();
+			var maximumTemplateCallCharacters = parseInt( mw.config.get( 'wgCodeMirrorMaximumTemplateCallCharacters' ) || 100 );
+			if ( ( $textbox1[ 0 ].value.match( /\||!/g ) || [] ).length <= maximumTemplateCallCharacters ) {
+				addCodeMirrorToWikiEditor();
+			}
 		} );
 	} );
 

@@ -65,6 +65,7 @@ class Hooks {
 		$config = MediaWikiServices::getInstance()->getMainConfig();
 
 		$vars['wgCodeMirrorLineNumberingNamespaces'] = $config->get( 'CodeMirrorLineNumberingNamespaces' );
+		$vars['wgCodeMirrorMaximumTemplateCallCharacters'] = $config->get( 'CodeMirrorMaximumTemplateCallCharacters' );
 	}
 
 	/**
